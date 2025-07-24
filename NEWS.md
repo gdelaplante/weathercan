@@ -1,3 +1,6 @@
+# weathercan 0.7.5
+- Fix weather_dl failure when requested start date is too far into the past (#174)
+
 # weathercan 0.7.4
 - Add `qual` from newly added Flags column to hourly data
 - Remove vcr

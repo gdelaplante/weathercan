@@ -183,19 +183,22 @@ weather_dl <- function(station_ids,
                                       levels = c("hour", "day", "month"),
                                       ordered = TRUE))
 
-    if(is.null(start)) {
+    if (is.null(start)) {
       s.start <- stn1$start
       msg.start <- "earliest date"
     } else {
       s.start <- as.Date(start)
-      if(s.start > Sys.Date()) s.start <- Sys.Date()
+      if (s.start > Sys.Date()) s.start <- Sys.Date()
+      if (s.start < stn1$start) s.start <- stn1$start
       msg.start <- start
     }
 
-    if(is.null(end)) {
+    if (is.null(end)) {
         s.end <- Sys.Date()
     } else {
         s.end <- as.Date(end)
+        if (s.end > Sys.Date()) s.end <- Sys.Date()
+        if (s.end < stn1$end) s.end <- stn1$end
     }
     msg.end <- as.character(s.end)
 
